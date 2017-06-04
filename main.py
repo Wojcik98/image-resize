@@ -3,17 +3,7 @@ import argparse
 from PIL import Image
 
 
-def parse_args():
-    arg_parser = argparse.ArgumentParser()
-    arg_parser.add_argument('width')
-    arg_parser.add_argument('height')
-    arg_parser.add_argument('image_path', nargs='+')
-    args = arg_parser.parse_args()
-
-    return args.width, args.height, args.image_path
-
-
-if __name__ == '__main__':
+def main():
     max_width, max_height, paths = parse_args()
 
     for path in paths:
@@ -32,3 +22,17 @@ if __name__ == '__main__':
         img.save(new_path)
 
         file.close()
+
+
+def parse_args():
+    arg_parser = argparse.ArgumentParser()
+    arg_parser.add_argument('width')
+    arg_parser.add_argument('height')
+    arg_parser.add_argument('image_path', nargs='+')
+    args = arg_parser.parse_args()
+
+    return args.width, args.height, args.image_path
+
+
+if __name__ == '__main__':
+    main()
